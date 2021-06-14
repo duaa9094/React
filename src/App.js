@@ -17,6 +17,15 @@ class App extends React.Component {
     }
   }
 
+  updateForm = (newOPtion) => {
+    this.setState({
+      Data: newOPtion
+    })
+  }
+
+
+
+
   selectedUpdate = (title) => {
     let selected = [];
     Data.forEach((beast) => {
@@ -24,6 +33,7 @@ class App extends React.Component {
         selected = beast;
       }
     })
+    
     this.setState({ showModel: true, selectedBeast: selected })
   }
   handleClose = () => {
@@ -34,6 +44,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Main
+        updateForm={this.updateForm}
           Data={this.state.Data}
           selectedUpdate={this.selectedUpdate}
         />
